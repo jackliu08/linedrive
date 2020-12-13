@@ -53,14 +53,24 @@ basic.forever(function () {
 })
 basic.forever(function () {
     if (move1 == true) {
-        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, 150)
-        basic.pause(2000)
-        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, 150)
-        basic.pause(2000)
-        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, 150)
-        basic.pause(2000)
-        cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Back, 150)
-        basic.pause(2000)
+        if (cbit_小车类.Avoid_Sensor(cbit_小车类.enAvoidState.NOOBSTACLE)) {
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Run, 100)
+            basic.pause(2000)
+        }
+        if (cbit_小车类.Avoid_Sensor(cbit_小车类.enAvoidState.NOOBSTACLE)) {
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Left, 100)
+            basic.pause(2000)
+        }
+        if (cbit_小车类.Avoid_Sensor(cbit_小车类.enAvoidState.NOOBSTACLE)) {
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Right, 100)
+            basic.pause(2000)
+        }
+        if (cbit_小车类.Avoid_Sensor(cbit_小车类.enAvoidState.NOOBSTACLE)) {
+            cbit_小车类.CarCtrlSpeed(cbit_小车类.CarState.Car_Back, 100)
+            basic.pause(2000)
+        }
+        cbit_小车类.CarCtrl(cbit_小车类.CarState.Car_Stop)
+        basic.pause(1000)
     } else {
         cbit_小车类.CarCtrl(cbit_小车类.CarState.Car_Stop)
     }
